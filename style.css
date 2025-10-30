@@ -16,17 +16,33 @@ header {
     background: #111;
     color: white;
     display: flex;
-    justify-content: center; /* CENTRALIZA os itens (logo e botão) horizontalmente */
+    /* Alterado para space-between para acomodar o menu entre a logo e o botão */
+    justify-content: space-between; 
     align-items: center;
-    padding: 1rem 2rem; /* REVERTIDO: Padding original */
-    gap: 90px;
-    
-    /* REVERTIDO: Removido position: fixed, top, left, width e z-index */
+    padding: 0.8rem 5%; /* Padding em % para responsividade */
+    /* REMOVIDO: gap: 90px; - O space-between fará a distribuição */
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #1a73e8; /* Cor de destaque (Azul) */
 }
 
 /* NOVO ESTILO PARA A LOGO */
 .header-logo {
-    height: 150px; /* REVERTIDO: Altura original */
+    height: 120px; /* Reduzido um pouco para um cabeçalho mais compacto */
     width: auto;
     display: block; 
 }
@@ -64,6 +80,83 @@ header {
     margin: 0.5rem 0;
 }
 
+/* ================================== */
+/* NOVAS SEÇÕES (QUEM SOMOS / FINANCIAMENTO) */
+/* ================================== */
+.info-section {
+    padding: 5rem 5%; /* Mais espaçamento para destacar a seção */
+    text-align: center;
+}
+
+.info-section.quem-somos {
+    background-color: #07158d; /* Fundo claro para contraste no body escuro */
+}
+
+.info-section.financiamento {
+    background-color: #1d4baf; /* Fundo branco puro */
+    border-top: 1px solid #eee;
+}
+
+.info-section h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.info-section p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.info-section ul {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    text-align: left;
+    list-style: none; /* Remove bolinha padrão */
+}
+
+.info-section ul li {
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+    color: #e9e4e4;
+}
+
+.info-section ul li::before {
+    content: "✅"; /* Ícone de check */
+    margin-right: 10px;
+    font-weight: bold;
+    color: #25d366;
+}
+
+/* Botão CTA (Call to Action) */
+.cta-button {
+    display: inline-block;
+    background: #020814; /* Cor escura do banner */
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+}
+.cta-button:hover {
+    background: #1a73e8; /* Azul de destaque */
+    transform: translateY(-2px);
+}
+
+/* Botão CTA no estilo WhatsApp para Financiamento */
+.cta-button.whatsapp-style {
+    background: #25d366;
+}
+.cta-button.whatsapp-style:hover {
+    background: #1eb854;
+}
 
 /* ========== SEÇÃO ESTOQUE (Minimalista com Fundo de Imagem e GRID) ========== */
 .estoque {
@@ -219,4 +312,29 @@ footer {
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+}
+
+/* NOVO: Media Query para Responsividade do Header e Layout */
+@media (max-width: 992px) {
+    /* Altera o header para empilhar no mobile e tablets menores */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 1rem 5%;
+    }
+    
+    .header-logo {
+        height: 100px;
+    }
+
+    .main-nav {
+        gap: 15px;
+        font-size: 1rem;
+        order: 3; /* Coloca o nav abaixo dos outros itens no mobile */
+    }
+
+    .whatsapp-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
 }
