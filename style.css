@@ -1,0 +1,222 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    /* REVERTIDO: Voltando para a cor de fundo original */
+    background-color: #051b4baf;
+    color: #333;
+}
+
+/* HEADER - Voltando para o estilo estático original */
+header {
+    background: #111;
+    color: white;
+    display: flex;
+    justify-content: center; /* CENTRALIZA os itens (logo e botão) horizontalmente */
+    align-items: center;
+    padding: 1rem 2rem; /* REVERTIDO: Padding original */
+    gap: 90px;
+    
+    /* REVERTIDO: Removido position: fixed, top, left, width e z-index */
+}
+
+/* NOVO ESTILO PARA A LOGO */
+.header-logo {
+    height: 150px; /* REVERTIDO: Altura original */
+    width: auto;
+    display: block; 
+}
+
+.whatsapp-btn {
+    background: #25d366;
+    color: white;
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #1eb854;
+}
+
+/* BANNER - Voltando para o estilo original (Não é Hero Banner) */
+.banner { 
+    text-align: center;
+    padding: 3rem 1rem;
+    color: rgb(255, 255, 255); 
+    
+    /* Adicionando a cor de fundo do banner anterior para contraste no layout original */
+    background-color: #020814af; 
+}
+
+.banner h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+/* Estilo para h3 adicionado para dar destaque ao endereço */
+.banner h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+
+/* ========== SEÇÃO ESTOQUE (Minimalista com Fundo de Imagem e GRID) ========== */
+.estoque {
+    /* Padding Reduzido para ser 'minimalista' */
+    padding: 3rem 1rem; 
+    
+    text-align: center;
+    font-size: 1rem;
+
+    /* Configuração da Imagem de Fundo que você desejava antes */
+    background-image: url('ESTOQUE/background\ 2.jfif'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Overlay para o texto (opcional, mas bom para contraste) */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+/* TÍTULO H1: Minimalista (Cor clara, alinhado à esquerda) */
+.estoque h1 {
+    /* REMOVIDO: margin-bottom: 2rem; */
+    font-size: 2.2rem; /* Um pouco maior */
+    color: #ffffff; /* Branco para destacar na imagem escura */
+    text-align: left; /* Alinha o título do estoque à esquerda */
+    margin-bottom: 1.5rem;
+    padding: 0 4rem; /* Padding para afastar das bordas */
+}
+
+/* TÍTULOS E TEXTOS INTERNOS DO ESTOQUE (Para garantir legibilidade) */
+.estoque h2, .estoque p {
+    color: white; /* Garante que o texto de dentro do estoque fique visível na imagem escura */
+}
+.estoque p {
+    color: #cccccc; /* P de texto simples em cinza claro */
+}
+
+/* GRID: Mantido o layout original (não carrossel) */
+.car-grid {
+    display: grid;
+    /* Ajustei o minmax para 320px para ter 3 colunas em telas grandes */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 1.5rem;
+    padding: 0 4rem; /* Padding para afastar das bordas */
+}
+
+/* MODIFICADO: Adiciona position: relative para posicionar as setas */
+.car-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Sombra um pouco mais forte para o fundo escuro */
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Transição mais rápida */
+    position: relative; 
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 1. ESTILIZAÇÃO DO CONTAINER DO SLIDE */
+.slider-container {
+    width: 100%;
+    /* Altura reduzida para se ajustar a largura do card (1:1) */
+    height: 320px; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+/* O resto do CSS do slide (car-images, car-slide, slide-arrow, car-info, footer) foi mantido do seu código anterior pois ele estava correto. */
+
+.car-images {
+    width: 100%;
+    height: 100%;
+}
+
+.car-slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; 
+    transition: opacity 0.5s ease;
+}
+
+.car-slide.active {
+    display: block; 
+}
+
+.slide-arrow {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10; 
+    font-size: 1.5rem;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.prev-arrow {
+    left: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.next-arrow {
+    right: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.car-card:hover .slide-arrow {
+    opacity: 1; 
+}
+
+.slide-arrow:hover {
+    background: rgba(0, 0, 0, 0.8); 
+}
+
+.car-info {
+    padding: 1.5rem; /* Padding ajustado */
+    text-align: left; /* Alinhando as informações do carro */
+}
+
+.car-info h2 {
+    font-size: 1.4rem;
+    color: #111;
+    margin-bottom: 0.3rem;
+}
+.car-info p {
+    font-size: 1rem;
+    color: #666;
+    margin: 0.3rem 0;
+}
+
+
+
+/* DESTAQUE PROFISSIONAL PARA O PREÇO */
+/* Seu HTML usa a última tag <p> para o preço. */
+.car-info p:last-child { 
+    font-size: 1.8rem; 
+    color: #1a73e8; /* Azul escuro vibrante (pode trocar por um verde se preferir) */
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
