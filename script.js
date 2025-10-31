@@ -59,3 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// Animação de entrada do botão WhatsApp quando aparece na tela
+document.addEventListener("DOMContentLoaded", () => {
+  const whatsappBtn = document.querySelector(".whatsapp-btn");
+  if (!whatsappBtn) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        whatsappBtn.style.animation = "fadeInUp 1.2s ease forwards";
+        observer.unobserve(whatsappBtn); // roda uma vez só
+      }
+    });
+  });
+
+  observer.observe(whatsappBtn);
+});
